@@ -1,0 +1,14 @@
+{
+  "name": "json-unlike",
+  "version": "0.0.0",
+  "description": "Test if a json object is 'unlike' a json object example",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit tests.js"
+  },
+  "keywords": [
+    "json"
+  ],
+  "author": "Itamar Nabriski",
+  "license": "BSD-2-Clause"
+}
