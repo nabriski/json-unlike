@@ -48,7 +48,7 @@ var unlike = module.exports = function(input,example,key){
     }
 
     if(!diff) return false;
-    if(!key) return diff;
+    if(typeof(key) === "undefined") return diff;
 
     var ret = {};
     ret[String(key)] = diff;
