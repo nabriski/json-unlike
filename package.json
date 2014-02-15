@@ -1,7 +1,7 @@
 {
   "name": "json-unlike",
-  "version": "0.0.0",
-  "description": "Test if a json object is 'unlike' a json object example",
+  "version": "0.0.10",
+  "description": "Test if a json object is 'unlike' another json object 'example'",
   "main": "index.js",
   "scripts": {
     "test": "nodeunit tests.js"
