@@ -1,7 +1,9 @@
-"use strict";
-var unlike = module.exports = function(input,example,key){
+var unlike = module.exports = function(input,example,options,key){
+    "use strict";
 
     var i, diff;
+
+    if(options && options.nullAllowed && input === null) return false;
 
     if(!example) return false;
 
@@ -12,8 +14,8 @@ var unlike = module.exports = function(input,example,key){
             example:typeof(example)
         };
 
-        if(typeof(key) === "number") ret["index"] = key;
-        else ret["key"] = key;
+        if(typeof(key) === "number") ret.index = key;
+        else ret.key = key;
 
         return ret;
     } 
@@ -32,7 +34,7 @@ var unlike = module.exports = function(input,example,key){
         var keys = Object.keys(example);
         for(i=0; i< keys.length; i++){
             var k = keys[i];
-            diff = unlike(input[k],example[k],k);
+            diff = unlike(input[k],example[k],options,k);
             if(diff) break;
         }
     }
@@ -42,7 +44,7 @@ var unlike = module.exports = function(input,example,key){
 
         if(example.length === 0) return false;
         for(i=0; i< input.length; i++){
-            diff = unlike(input[i],example[0],i);
+            diff = unlike(input[i],example[0],options,i);
             if(diff) break;
         }
     }

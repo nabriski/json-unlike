@@ -26,6 +26,7 @@ exports.testArrayNested = function(test){
 
     var diff = unlike([{current_value: null}],[{current_value:2.0}]);
     test.deepEqual(diff,{"0" :{"input":"object","example":"number","key":"current_value"}}); 
+
     test.done();
 };
 //-----------------------------------------
@@ -33,6 +34,13 @@ exports.testObject = function(test){
 
     var diff = unlike({current_value: null},{current_value:2.0});
     test.deepEqual(diff,{"input":"object","example":"number","key":"current_value"}); 
+    test.done();
+};
+//-----------------------------------------
+exports.testNullAllowed = function(test){
+
+    test.ok(!unlike(null,7,{nullAllowed:true}));
+    test.ok(!unlike({current_value: null},{current_value:2.0},{nullAllowed:true}));
     test.done();
 };
 //-----------------------------------------
