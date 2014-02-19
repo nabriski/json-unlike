@@ -5,6 +5,8 @@ var unlike = module.exports = function(input,example,options,key){
 
     if(options && options.nullAllowed && input === null) return false;
 
+    if(options && options.undefinedLikeEmptyArray && typeof(input) === "undefined" && Array.isArray(example)) return false;
+
     if(!example) return false;
 
     //different value types

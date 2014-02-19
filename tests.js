@@ -44,3 +44,13 @@ exports.testNullAllowed = function(test){
     test.done();
 };
 //-----------------------------------------
+exports.testUndefinedLikeEmptyArray = function(test){
+
+    var dummy = {};
+    test.ok(!unlike(dummy.a,[],{undefinedLikeEmptyArray:true}));
+    test.ok(!unlike(dummy.b,[1,2,3],{undefinedLikeEmptyArray:true}));
+    test.ok(!unlike({},{a:[]},{undefinedLikeEmptyArray:true}));
+    test.ok(!unlike({},{a:[1,2]},{undefinedLikeEmptyArray:true}));
+    test.done();
+};
+//-----------------------------------------
