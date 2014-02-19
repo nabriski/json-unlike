@@ -33,6 +33,9 @@ var unlike = module.exports = function(input,example,options,key){
 
     //both objects, check unlike for all keys
     else if(typeof(example) === "object" && !Array.isArray(example)){
+
+        if(input === null || example === null) return false;
+
         var keys = Object.keys(example);
         for(i=0; i< keys.length; i++){
             var k = keys[i];

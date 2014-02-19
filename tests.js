@@ -34,6 +34,10 @@ exports.testObject = function(test){
 
     var diff = unlike({current_value: null},{current_value:2.0});
     test.deepEqual(diff,{"input":"object","example":"number","key":"current_value"}); 
+    test.ok(!unlike(null,{current_value:2.0}));
+    test.ok(!unlike({current_value: null},null));
+    test.ok(!unlike({a:null},{a:{b:1}}));
+    test.ok(!unlike({a:{c:5}},{a:null}));
     test.done();
 };
 //-----------------------------------------
